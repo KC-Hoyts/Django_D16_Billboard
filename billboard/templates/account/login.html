@@ -1,0 +1,45 @@
+{% extends 'flatpages/default.html' %}
+
+
+{% block title %}
+Вход в аккаунт
+{% endblock title  %}
+
+
+{% block content %}
+    <h1 align="left" style="color: #333333"><b>Вход в аккаунт</b></h1>
+    <hr>
+    <div align="center" class="form-group" style="margin-bottom: 25px">
+        <h1 align="center" style="color: #333333">Введите Логин и Пароль:</h1>
+        <br>
+        <form  method="post" action="{% url 'account_login' %}">
+            <style>
+                label {font-weight: bold}
+            </style>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="fieldWrapper">
+                {{ form.login.errors }}
+                <input id="{{ form.login.id }}" name="{{ form.login.name }}" placeholder="{%if 'Username' in form.login.label %}Логин{%elif 'Email' in form.login.label%}Почта{%else%}Логин или Почта{%endif%}" class="form-control" style="width:19%;  border: 1px; "/>
+            </div>
+            <br>
+            <div class="fieldWrapper">
+                {{ form.password.errors }}
+                <input id="{{ form.password.id }}" name="{{ form.password.name }}" type="password" placeholder="Пароль" class="form-control" style="width:19%; border: 1px"/>
+            </div>
+            <br><br>
+            <input type="submit" class="form-control" value="Войти" style="width:19%; height: 50px; background: linear-gradient(245deg,#F00B51,#73005C); color: white; font-weight: bold; border: 2px; box-shadow: 0 0 10px 1px #330000"/>
+            <br>
+            <div class="mb-3" style="width: 170px">
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="{{ form.remember.id }}" name="{{ form.remember.name }}">
+                    <label class="form-check-label" for="{{ form.remember.id }}">
+                      Запомнить меня
+                    </label>
+                  </div>
+            </div>
+        </form>
+        <br><br>
+        <hr>
+    </div>
+{% endblock content %}

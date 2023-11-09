@@ -1,0 +1,35 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+Ответ на отклик
+{% endblock title  %}
+
+
+{% block content %}
+    <h1 align="left" style="color: #333333"><b>Ответ на отклик к посту <em>"{{Reply.comment_post}}"</em></b></h1>
+    <hr>
+    <div align="left" style=" box-shadow: 0 0 10px 1px #330000; border-radius:20px; width: 800px; margin-left:20px; padding: 15px; background: linear-gradient(245deg,#B6C1D4,#92F1D5)">
+        <figure>
+          <blockquote class="blockquote">
+            <p>{{ Reply.text }}</p>
+          </blockquote>
+          <figcaption class="blockquote-footer">
+            Отклик от <cite title="Source Title">{{ Reply.author }}</cite>, {{ Reply.date_creation|month_translation }} {{Reply.date_creation|date:"H:i"}}
+          </figcaption>
+        </figure>
+        <form method="post">
+            {% csrf_token %}
+            <input
+                    id="response_text"
+                    name="response_text"
+                    class="form-control"
+                    placeholder="Напечатайте Ваш ответ на отклик здесь...">
+
+            <br>
+            <input type="hidden" name="Reply_id" value="{{ Reply.id }}" />
+            <button name="action" value="send_reply" style="text-align:right; font-size: 12px" class="btn btn-success">Отправить ответ</button>
+        </form>
+    </div>
+{% endblock content %}

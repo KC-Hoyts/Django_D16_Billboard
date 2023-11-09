@@ -1,0 +1,34 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+lalala
+{% endblock title  %}
+
+{% block content %}
+<h1 align="left" style="color: #333333"><b>Профиль пользователя "{{ user }}"</b></h1>
+<hr>
+
+
+<div align="center" class="form-group" style="margin-bottom: 25px">
+    <table>
+        <tr><td>Никнейм - {{ user.username }}</td></tr>
+        <tr><td>Имя - {{ user.first_name }}</td></tr>
+        <tr><td>Фамилия - {{ user.last_name }}</td></tr>
+        <tr><td>Email - {{ user.email }}</td></tr>
+        <tr><td>Пароль - *******</td></tr>
+        <tr><td><br></td></tr>
+        <tr><td><b><i>Данная страница ещё в разработке...&#9997;</i></b></td></tr>
+    </table>
+    <hr>
+    <div class="list-group-item list-group-item list-group-item-warning" style="background: linear-gradient(245deg,#ABE5E6,#7062F0);height:75px; width: 600px;border-radius:10px;display: flex color: #000000; padding:10px">
+        <figure class="text-center">
+          <blockquote class="blockquote">
+            <p>Веб-приложение разработано по заданию D16 - SkillFactory</p>
+          </blockquote>
+          <figcaption class="blockquote-footer">
+            KC Hoyts <cite title="Source Title">09/11/2023</cite>
+          </figcaption>
+        </figure>
+    </div>
+</div>
+
+{% endblock content %}

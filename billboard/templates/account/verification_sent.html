@@ -1,0 +1,20 @@
+{% extends "flatpages/default.html" %}
+{% load allauth %}
+{% load custom_tags %}
+
+{% block title %}
+    Подтверждение Email адреса
+{% endblock title %}
+
+{% block content %}
+    <h1 align="left" style="color: #333333"><b>Подтвердите Ваш адрес электронной почты</b></h1>
+    <hr>
+
+
+    <div align="center" class="form-group" style="margin-bottom: 25px">
+        На указанный Вами почтовый адрес было отправлено письмо с кодом для подтверждения Email адреса. &#9993;&#128269;
+        <br><br>
+        После подтверждения Email адреса Вам будут доступны возможности размещения объявлений и откликов.
+        <hr>
+    </div>
+{% endblock content %}

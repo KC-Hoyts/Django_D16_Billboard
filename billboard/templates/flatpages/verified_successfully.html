@@ -1,0 +1,25 @@
+{% extends 'flatpages/default.html' %}
+
+
+{% block title %}
+Заголовок вкладки
+{% endblock title  %}
+
+
+{% block content %}
+    <h1 align="left" style="color: #333333"><b>Заголовок здесь</b></h1>
+    <hr>
+    <br>
+    <h2>	&#128293 Ура! Ваша учётка подтверждена.&#9989;</h2>
+    <br>
+    <h3>Теперь Вы можете зайти на сайт:</h3>
+    &#128071;<br><br>
+    <div align="center" class="form-group" style="margin-bottom: 25px">
+        <a href="{% url 'account_login' %}" class="list-group-item list-group-item list-group-item-warning" style="text-decoration: none; box-shadow: 0 0 10px 1px #330000; border-radius:20px; width: 300px; margin-left:20px; padding: 15px; background: linear-gradient(245deg,#91F1D5,#ABF6BD); font-size:20px; ">Войти в аккаунт</a>
+        <br>
+    </div>
+    <hr>
+{% endblock content %}
+
+
+

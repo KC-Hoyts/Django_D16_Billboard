@@ -1,0 +1,32 @@
+{% extends 'flatpages/default.html' %}
+
+
+{% block title %}
+Создание объявления
+{% endblock title  %}
+
+{% block content %}
+
+
+<h1 align="left" style="color: #333333"><b>Новое объявление</b></h1>
+<hr>
+<div align="left" style="margin-top:15px; margin-bottom: 15px">
+    <a href="{% url 'post_list' %}" class="btn btn-danger">&#8592 Отменить и вернуться на главную</a>
+</div>
+<hr>
+<div class="form-group" style="margin-bottom: 25px">
+    <form action="" method="post" style="width: 700px">
+        <style>
+            label {font-weight: bold}
+        </style>
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        <hr>
+        <input type="submit" value="Опубликовать" class="btn btn-secondary" align="center" style="background: linear-gradient(245deg,#F00B51,#73005C); color: white; font-size: 20px; font-weight: bold"/>
+
+    </form>
+<hr>
+</div>
+
+{% endblock content %}

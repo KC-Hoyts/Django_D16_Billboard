@@ -1,0 +1,58 @@
+{% extends 'flatpages/default.html' %}
+
+
+{% block title %}
+Регистрация аккаунта
+{% endblock title  %}
+
+
+{% block content %}
+
+    <style>
+        label {font-weight: bold}
+    </style>
+
+    <h1 align="left" style="color: #333333"><b>Регистрация аккаунта</b></h1>
+    <hr>
+    <div align="center" class="form-group" style="margin-bottom: 25px">
+        <h2 align="center" style="color: #333333">Заполните данные формы</h2>
+        <br>
+        <form method="post" action="{% url 'account_signup' %}">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="fieldWrapper">
+                {{ form.username.errors }}
+                <input id="{{ form.username.id }}" name="{{ form.username.name }}" placeholder="Логин/Никнейм" class="form-control" style="width:19%;  border: 1px; "/>
+            </div>
+            <br>
+            <div class="fieldWrapper">
+                {{ form.first_name.errors }}
+                <input id="{{ form.first_name.id }}" name="{{ form.first_name.name }}" placeholder="Имя" class="form-control" style="width:19%; border: 1px"/>
+            </div>
+            <br>
+            <div class="fieldWrapper">
+                {{ form.last_name.errors }}
+                <input id="{{ form.last_name.id }}" name="{{ form.last_name.name }}" placeholder="Фамилия" class="form-control" style="width:19%; border: 1px"/>
+            </div>
+            <br>
+            <div class="fieldWrapper">
+                {{ form.email.errors }}
+                <input id="{{ form.email.id }}" name="{{ form.email.name }}" placeholder="email@example.com" class="form-control" style="width:19%; border: 1px"/>
+            </div>
+            <br>
+            <div class="fieldWrapper">
+                {{ form.password1.errors }}
+                <input id="{{ form.password1.id }}" name="{{ form.password1.name }}" type="password" placeholder="Введите пароль" class="form-control" style="width:19%; border: 1px"/>
+            </div>
+            <br>
+            <div class="fieldWrapper">
+                {{ form.password2.errors }}
+                <input id="{{ form.password2.id }}" name="{{ form.password2.name }}" type="password" placeholder="Повторие пароль" class="form-control" style="width:19%; border: 1px"/>
+            </div>
+            <br><br>
+            <input type="submit" class="form-control" value="Зарегистрироваться" style="width:19%; height: 50px; background: linear-gradient(245deg,#F00B51,#73005C); color: white; font-weight: bold; border: 2px; box-shadow: 0 0 10px 1px #330000"/>
+        </form>
+        <br><br>
+        <hr>
+    </div>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'flatpages/default.html' %}
+
+
+{% block title %}
+Удаление объявления
+{% endblock title  %}
+
+{% block content %}
+
+
+<h1 align="left" style="color: #333333"><b>Удаление объявления</b></h1>
+<hr>
+<div align="left" style="margin-top:15px; margin-bottom: 15px">
+
+</div>
+<div align="center" class="form-group" style="margin-bottom: 25px">
+    <form action="" method="post" style="width: 700px">
+        <h2 align="center" style="color: #333333"><b>Вы уверены, что хотите безвозвратно удалить с сайта объявление</b> <br><br><i style="color: #660000">- {{ object.title }} -</i> </h2>
+        {% csrf_token %}
+        <br>
+        <br>
+        <a href="{% url 'post_view' object.id%}" class="btn btn-success" style="color: white; font-size: 20px; font-weight: bold">&#8592 Отменить удаление и вернуться к посту</a>
+        <br><br>
+        <input type="submit" value="Удалить объявление" class="btn btn-danger" align="center" style="color: white; font-size: 20px; font-weight: bold"/>
+        <br><br>
+    </form>
+<hr>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends 'flatpages/default.html' %}
+
+
+{% block title %}
+Заголовок вкладки
+{% endblock title  %}
+
+
+{% block content %}
+  <h1 align="left" style="color: #333333"><b>&#128711; 403 - Ошибка доступа &#128711;</b></h1>
+  <hr>
+
+
+  <div align="center" class="form-group" style="margin-bottom: 25px">
+     <h1 align="center" style="color: #333333; font-size: 100px">&otimes; УПС! &otimes;</h1>
+     <br>
+     <h1 align="center" style="color: #333333">Похоже Вы не вошли в свой аккаунт!</h1>
+     <br>
+
+      <a href="{% url 'account_login'%}" class="btn btn-secondary" align="center" style="background: linear-gradient(245deg,#F00B51,#73005C); color: white; font-size: 20px; font-weight: bold">
+      Войти на сайт
+      </a>
+      <br>
+     <br>
+
+
+  <hr>
+  </div>
+{% endblock content %}

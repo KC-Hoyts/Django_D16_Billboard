@@ -1,0 +1,18 @@
+{% extends "account/email/base_message.txt" %}
+{% load account %}
+{% load i18n %}
+{% load custom_tags %}
+{% block content %}
+{% autoescape off %}
+{% user_display user as user_display %}
+{% number_generation as num %}
+{% url_address as ua %}
+
+Вы получили это сообщение, потому что пользователь {{ user_display }} указал этот email при регистрации на сайте Доска объявлений.
+
+Пожалуйста, пройдите по ссылке ниже и введите следующий код для завершения регистрации и подтверждения емэил адреса
+Код подтверждения: {{ num }}
+Ссылка: http://127.0.0.1:8000/{{ ua.url }}
+
+{% endautoescape %}
+{% endblock %}
